@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
+from group import Group
 
 def is_alert_present(wd):
     try:
@@ -36,17 +37,17 @@ class add_new_group(unittest.TestCase):
         wd.find_element_by_link_text("groups").click()
 
 
-    def creation_new_group(self, wd, name, header, footer):
+    def creation_new_group(self, wd, group):
         wd.find_element_by_name("new").click()
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys("%s" % name)
+        wd.find_element_by_name("group_name").send_keys("%s" % group.name)
         wd.find_element_by_name("group_header").click()
         wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys("%s" % header)
+        wd.find_element_by_name("group_header").send_keys("%s" % group.header)
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys("%s" % footer)
+        wd.find_element_by_name("group_footer").send_keys("%s" % group.footer)
         wd.find_element_by_name("submit").click()
 
 
@@ -65,7 +66,7 @@ class add_new_group(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_group_page(wd)
-        self.creation_new_group(wd, name="1111111", header="22222", footer="33333")
+        self.creation_new_group(wd, Group(name="1111111", header="22222", footer="33333"))
         self.return_to_group_page(wd)
         self.logout(wd)
         self.assertTrue(success)
@@ -77,7 +78,7 @@ class add_new_group(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_group_page(wd)
-        self.creation_new_group(wd, name="", header="", footer="")
+        self.creation_new_group(wd, Group(name="", header="", footer=""))
         self.return_to_group_page(wd)
         self.logout(wd)
         self.assertTrue(success)
