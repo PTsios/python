@@ -8,4 +8,3 @@ class Contact:
         self.address = address
         self.home = home
         self.email = email
-         
