@@ -15,12 +15,22 @@ class add_new_contact(unittest.TestCase):
         self.wd = WebDriver(capabilities={"marionette": False})
         self.wd.implicitly_wait(60)
     
-    def test_add_new_contact(self):
+    def test_add_new_blank_contact(self):
         success = True
         wd = self.wd
         self.open_homepage(wd)
         self.login(wd, username="admin", password="secret")
         self.adding_new_contact(wd, Contact(firstname="", middlename="", lastname="", nickname="", title="",company="", address="",home="",email=""))
+        self.return_to_main_page(wd)
+        self.logout(wd)
+        self.assertTrue(success)
+
+    def test_add_new_contact(self):
+        success = True
+        wd = self.wd
+        self.open_homepage(wd)
+        self.login(wd, username="admin", password="secret")
+        self.adding_new_contact(wd, Contact(firstname="Pavel", middlename="Notallowed", lastname="Tsios", nickname="raynalds", title="QA", company="devhouse", address="Russia. Stavropol", home="9175265472", email="pavel.tsios@devhouese.pro"))
         self.return_to_main_page(wd)
         self.logout(wd)
         self.assertTrue(success)
