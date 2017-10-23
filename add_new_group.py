@@ -11,7 +11,14 @@ def app(request):
     request.addfinalizer(fixture.destroy)
     return fixture
 
+
 def test_add_new_group(app):
     app.login(username="admin", password="secret")
     app.creation_new_group(Group(name="1111111", header="22222", footer="33333"))
+    app.logout()
+
+
+def test_add_new_blank_group(app):
+    app.login(username="admin", password="secret")
+    app.creation_new_group(Group(name="", header="", footer=""))
     app.logout()
