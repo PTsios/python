@@ -13,12 +13,12 @@ def app(request):
 
 
 def test_add_new_group(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.creation_new_group(Group(name="1111111", header="22222", footer="33333"))
-    app.logout()
+    app.session.logout()
 
 
 def test_add_new_blank_group(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.creation_new_group(Group(name="", header="", footer=""))
-    app.logout()
+    app.session.logout()
