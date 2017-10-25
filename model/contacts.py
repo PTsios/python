@@ -7,5 +7,5 @@ class Contact:
         self.title = title
         self.company = company
         self.address = address
-        self.home = home
         self.email = email
+        self.home = home

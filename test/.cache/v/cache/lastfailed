@@ -1,3 +1,4 @@
 {
-  "test_del_contact.py::test_deleting_first_contact": true
+  "test_del_contact.py::test_deleting_first_contact": true,
+  "test_modificate_contact.py::test_group_modification": true
 }
