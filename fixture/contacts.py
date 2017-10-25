@@ -36,3 +36,11 @@ class ContactHelper:
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys("%s" % contacts.email)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+
+    def deleting_all_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
+        wd.find_element_by_id("MassCB").click()
+        wd.find_element_by_xpath("/html/body/div/div[4]/form[2]/div[2]/input").click()
+        wd.switch_to_alert().accept()
+
