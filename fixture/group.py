@@ -58,7 +58,7 @@ class GroupHelper:
     def delete_first_group(self):
         wd = self.app.wd
         self.open_group_page()
-        self.selecting_first_group(wd)
+        self.selecting_first_group()
         self.submit_deleting_first_group()
         self.return_to_group_page()
 
@@ -77,7 +77,7 @@ class GroupHelper:
 
     def selecting_first_group(self):
         # select first group
-        assert isinstance(self.app.wd)
+        
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
