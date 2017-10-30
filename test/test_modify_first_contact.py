@@ -1,5 +1,5 @@
 from model.contacts import Contact
 
 
-def test_add_new_blank_contact(app):
+def test_modify_first_contact_firstname(app):
     app.contacts.modify_first_contact(Contact(firstname="YOYOYOYOYOYOOY"))
