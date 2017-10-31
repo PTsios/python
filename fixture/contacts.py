@@ -2,8 +2,10 @@
 
 class ContactHelper:
 
+
     def __init__(self, app):
         self.app = app
+
 
     def adding_new_contact(self, contacts):
         # add new contact
@@ -12,9 +14,11 @@ class ContactHelper:
         self.fill_contact_form(contacts)
         self.submit_new_contact_info()
 
+
     def submit_new_contact_info(self):
         wd = self.app.wd
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+
 
     def fill_contact_form(self, contacts):
         wd = self.app.wd
@@ -36,9 +40,11 @@ class ContactHelper:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(tekst)
 
+
     def open_new_contact_form(self):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
+
 
     def deleting_one_contact(self):
         wd = self.app.wd
@@ -47,22 +53,26 @@ class ContactHelper:
         self.click_on_delete_button()
         wd.switch_to_alert().accept() #submit deleting
 
+
     def click_on_delete_button(self):
         wd = self.app.wd
         wd.find_element_by_xpath("/html/body/div/div[4]/form[2]/div[2]/input").click()
+
 
     def selecting_first_element(self):
         wd = self.app.wd
         wd.find_element_by_xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input").click()
 
+
     def open_home_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("home").click()
 
+
     def choose_first_to_edit(self):
         #choosing first contact and clicking edit
         wd = self.app.wd
-        wd.find_element_by_xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[3]/td[8]/a/img").click()
+        wd.find_element_by_xpath("/html/body/div/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img").click()
 
 
     def submit_contact_update(self):

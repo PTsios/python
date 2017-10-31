@@ -3,6 +3,7 @@ from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from fixture.contacts import ContactHelper
 
+
 class Application:
     def __init__(self):
         self.wd = WebDriver(capabilities={"marionette": False})
@@ -16,6 +17,7 @@ class Application:
         # open home page
         wd = self.wd
         wd.get("http://localhost/addressbook/index.php")
+
 
     def is_valid(self):
         try:

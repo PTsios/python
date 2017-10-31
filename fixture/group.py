@@ -2,6 +2,7 @@
 
 class GroupHelper:
 
+
     def __init__(self, app):
         self.app = app
 
@@ -20,6 +21,7 @@ class GroupHelper:
         wd.find_element_by_xpath("/html/body/div/div[4]/form/input[2]").click()
         self.return_to_group_page()
 
+
     def fill_group_form(self, group):
         # fill group form
         self.change_field_value("group_name", group.name)
@@ -33,6 +35,7 @@ class GroupHelper:
             wd.find_element_by_name(field_name).click()
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
+
 
     def return_to_group_page(self):
         # return to group page
@@ -54,6 +57,7 @@ class GroupHelper:
         #submit update
         wd = self.app.wd
         wd.find_element_by_xpath("/html/body/div/div[4]/form/input[3]").click()
+
 
     def delete_first_group(self):
         wd = self.app.wd
