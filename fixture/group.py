@@ -77,7 +77,6 @@ class GroupHelper:
 
     def selecting_first_group(self):
         # select first group
-        
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
@@ -85,7 +84,7 @@ class GroupHelper:
     def count(self):
         wd = self.app.wd
         self.open_group_page()
-        return len(wd.find_elements_by_link_text("selected[]"))
+        return len(wd.find_elements_by_name("selected[]"))
 
 
 
