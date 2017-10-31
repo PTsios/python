@@ -43,7 +43,8 @@ class ContactHelper:
 
     def open_new_contact_form(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("add new").click()
+        if not (wd.current_url.endswith("/edit.php") and len(wd.find_elements_by_name("submmit")) > 0):
+           wd.find_element_by_link_text("add new").click()
 
 
     def deleting_one_contact(self):
@@ -66,7 +67,8 @@ class ContactHelper:
 
     def open_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        if not (wd.current_url.endswith("/index.php") and len(wd.find_elements_by_link_text("Last name")) and len(wd.find_elements_by_link_text("First name")) > 0):
+            wd.find_element_by_link_text("home").click()
 
 
     def choose_first_to_edit(self):
