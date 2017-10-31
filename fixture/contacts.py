@@ -86,3 +86,9 @@ class ContactHelper:
         self.choose_first_to_edit()
         self.fill_contact_form(new_contacts_data)
         self.submit_contact_update()
+
+
+    def edit_count(self):
+        wd = self.app.wd
+        self.open_home_page()
+        return len(wd.find_elements_by_name("selected[]"))
