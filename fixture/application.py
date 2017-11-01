@@ -16,7 +16,8 @@ class Application:
     def open_home_page(self):
         # open home page
         wd = self.wd
-        wd.get("http://localhost/addressbook/index.php")
+        if not (wd.current_url.endswith("addressbook/index.php") and (len(wd.find_elements_by_name("user")) and len(wd.find_elements_by_name("pass"))) > 0):
+                wd.get("http://localhost/addressbook/index.php")
 
 
     def is_valid(self):
