@@ -1,5 +1,4 @@
 {
-  "test_del_contact.py::test_deleting_contact": true,
   "test_del_contact.py::test_deleting_first_contact": true,
   "test_modificate_contact.py::test_group_modification": true,
   "test_modify_group.py::test_modify_first_group_footer": true,

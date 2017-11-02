@@ -54,6 +54,8 @@ class ContactHelper:
         self.selecting_first_element()
         self.click_on_delete_button()
         wd.switch_to_alert().accept() #submit deleting
+        self.open_home_page()
+
 
 
     def click_on_delete_button(self):
