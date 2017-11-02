@@ -91,6 +91,7 @@ class ContactHelper:
         self.choose_first_to_edit()
         self.fill_contact_form(new_contacts_data)
         self.submit_contact_update()
+        wd.find_element_by_link_text("home").click()
 
 
     def edit_count(self):
@@ -104,5 +105,5 @@ class ContactHelper:
         for element in wd.find_elements_by_name("entry"):
             text = element.text
             id = element.find_element_by_name("selected[]").get_attribute("value")
-            contactss.append(Contact(firstname=text, id=id))
+            contactss.append(Contact(firstname=text, lastname=text, id=id))
         return contactss
