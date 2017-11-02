@@ -99,7 +99,7 @@ class ContactHelper:
     def get_contactss_list(self):
         wd = self.app.wd
         contactss = []
-        for element in wd.find_elements_by_css_selector("title.vCard"):
+        for element in wd.find_elements_by_name("entry"):
             text = element.text
             id = element.find_element_by_name("selected[]").get_attribute("value")
             contactss.append(Contact(firstname=text, id=id))
