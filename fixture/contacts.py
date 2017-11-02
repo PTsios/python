@@ -13,6 +13,7 @@ class ContactHelper:
         self.open_new_contact_form()
         self.fill_contact_form(contacts)
         self.submit_new_contact_info()
+        self.open_home_page()
 
 
     def submit_new_contact_info(self):
@@ -98,7 +99,7 @@ class ContactHelper:
     def get_contactss_list(self):
         wd = self.app.wd
         contactss = []
-        for element in wd.find_elements_by_css_selector("tr.entry"):
+        for element in wd.find_elements_by_css_selector("title.vCard"):
             text = element.text
             id = element.find_element_by_name("selected[]").get_attribute("value")
             contactss.append(Contact(firstname=text, id=id))
